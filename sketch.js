@@ -21,8 +21,10 @@ let sentences = [
   "We do not need magic to change the world, we carry all the power we need inside ourselves already; we have the power to imagine better.",
   "Happiness can be found, even in the darkest of times, if one only remembers to turn on the light.",
 ];
+d; //get x as random sentence, y as the user input
 let x = sentences[Math.floor(Math.random() * sentences.length)];
 let y = "";
+let setupText = "Press any key to start, click anytime to refresh";
 let time = false;
 let start = true;
 let elapsedTime = 0;
@@ -40,6 +42,7 @@ function draw() {
   fill("#fdffbf");
   rect(10, 400, 780, 390, 10);
   fill("black");
+
   //text for timer
   timer();
   textSize(50);
@@ -49,6 +52,9 @@ function draw() {
   textSize(30);
   textWrap(WORD);
   text(x, 10, 150, 780, 280);
+
+  //intro text
+  text(setupText, 15, 405, 790, 280);
 
   //text for input
   textAlign(LEFT);
@@ -127,6 +133,7 @@ function keyPressed() {
     start == true
   ) {
     //start timer
+    setupText = "";
     time = true;
     //add key to input
     y += key;
